@@ -53,7 +53,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
-export PYTHONPATH=$PYTHONPATH:/home/melchior/github/misc 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -81,7 +80,7 @@ export PYTHONPATH=$PYTHONPATH:/home/melchior/github/misc
 #
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pw="cat /home/melchior/Documents/pdb2.prn"
+alias pubip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
 autoload colors
 colors

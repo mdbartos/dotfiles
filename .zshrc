@@ -7,6 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+TERM=xterm
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -85,14 +86,14 @@ alias pubip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e '
 autoload colors
 colors
 
-local user_host="%(?:%{$fg[blue]%}%n@%m%{$reset_color%}:%{$fg[red]%}%n@%m%{$reset_color%} %s)"
+local user_host="%(?:%{$fg[cyan]%}%n%{$fg[red]%}@%{$fg[cyan]%}%m:%{$fg[blue]%}%n@%m %s)"
 
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-local current_dir='%{$fg[green]%}%~%{$reset_color%}'
+local current_dir='%{$fg[magenta]%}%~%{$reset_color%}'
 
-local git_branch='$(git_prompt_info)%{$reset_color%}'
+local git_branch=' %{$fg[blue]%}$(git_prompt_info)'
 
-RPROMPT="[%{$fg[green]%}%@%{$reset_color%}] ${return_code}%{$reset_color%}"
-PROMPT="┌─[${user_host}]—[${current_dir}]${git_branch}
-└─%B%b "
+RPROMPT="%{$fg[blue]%}[%{$fg[red]%}%@%{$reset_color%}%{$fg[blue]%}] ${return_code}%{$reset_color%}"
+PROMPT="%{$fg[red]%}┌─[${user_host}%{$fg[red]%}]—[${current_dir}%{$fg[red]%}]${git_branch}
+%{$fg[red]%}└─%B%b "

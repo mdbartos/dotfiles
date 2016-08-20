@@ -26,7 +26,7 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      ;; markdown
      org
      latex
@@ -39,6 +39,9 @@ values."
      javascript
      html
      python
+     ;; ipython-notebook
+     restclient
+     evil-snipe
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -86,7 +89,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 'random
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
@@ -244,6 +247,14 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq python-shell-interpreter "ipython"
+        python-shell-interpreter-args "--simple-prompt -i")
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "chromium")
+  ; Enable evil-snipe alternate behaviors
+  (setq-default dotspacemacs-configuration-layers
+                '((evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t)))
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -253,6 +264,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
+
+
+    (evil-snipe-override-mode 1)
     (global-linum-mode) ; Show line numbers by default
 
     (defun copy-to-clipboard ()

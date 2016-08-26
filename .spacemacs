@@ -299,6 +299,7 @@ you should place you code here."
   (evil-leader/set-key "o y" 'copy-to-clipboard)
   (evil-leader/set-key "o p" 'paste-from-clipboard)
 
+  (setq org-agenda-files (quote ("~/github/agenda")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
